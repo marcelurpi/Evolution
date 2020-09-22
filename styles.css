@@ -1,0 +1,104 @@
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+    text-align: center;
+    font-family: 'ubuntuMono', monospace;
+    color: white;
+}
+
+body {
+    background-color: #2E282A;
+}
+
+.title {
+    margin: 50px;
+}
+
+.messages {
+    height: 20px;
+    margin-bottom: 40px;
+}
+
+.game-container {
+    margin: 40px auto;
+    width: 1100px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat {
+    width: 200px;
+    height: 50px;
+}
+
+.text-box {
+    z-index: 10;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.border {
+    z-index: 10;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    border: 3px solid white;
+}
+
+.border.disabled {
+    border: 3px solid gray;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    left: 0;
+}
+
+.button {
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+    flex-direction: column;
+}
+
+.button.disabled {
+    cursor: default;
+}
+
+.hunger-bar {
+    background: #945725;
+}
+
+.energy-bar {
+    background: #7A6C00;
+}
+
+.button-bar {
+    background: #426152;
+}
+
+.button-bar.disabled {
+    background: #2E282A;
+}
+
+.button-bar:hover {
+    background: #32493E;
+}
