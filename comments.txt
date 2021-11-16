@@ -1,0 +1,413 @@
+// var lookAround;
+// var takeRest;
+// var tree;
+// var bush;
+// var berries;
+// var wood;
+// var hutBlueprint;
+// var woodenToolsBlueprint;
+// var hut;
+// var woodenTools;
+//
+// lookAround = {
+//     name: 'Look around',
+//     task: {
+//         runningText: 'Looking around...',
+//         msDuration: 4000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             energy -= 20;
+//             addTile(tree, 3);
+//             addTile(bush, 2);
+//             enqueueMessage('There are plenty of trees and bushes all around you');
+//         },
+//     },
+// }
+//
+// takeRest = {
+//     name: 'Take a rest',
+//     task: {
+//         runningText: 'Sleeping...',
+//         msDuration: 8000,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy <= 40;
+//                 },
+//                 notMetText: 'No need to rest now',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             energy = 100;
+//             hunger = 80;
+//             enqueueMessage('You wake up feeling quite hungry');
+//         },
+//     },
+// }
+//
+// tree = {
+//     name: 'Tree',
+//     task: {
+//         startText: 'Chop down tree',
+//         runningText: 'Chopping tree...',
+//         msDuration: 10000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             addExp(tile);
+//             energy -= 20;
+//             addTile(wood, 4);
+//             addTile(hutBlueprint, undefined);
+//             addTile(woodenToolsBlueprint, undefined);
+//             enqueueMessage('The tree fell down. You got some Wood');
+//         }
+//     },
+// }
+//
+// bush = {
+//     name: 'Bush',
+//     task: {
+//         startText: 'Forage bush',
+//         runningText: 'Foraging...',
+//         msDuration: 6000,
+//         energy: 10,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 15;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             addExp(tile);
+//             energy -= 10;
+//             addTile(berries, 4);
+//             enqueueMessage('You got some blue berries. They look comestible');
+//         }
+//     },
+// }
+//
+// berries = {
+//     name: 'Berries',
+//     task: {
+//         startText: 'Eat berries',
+//         runningText: 'Eating...',
+//         msDuration: 2000,
+//         energy: 10,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hunger > 0;
+//                 },
+//                 notMetText: 'I\'m already full',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             hunger -= 10;
+//             enqueueMessage('Feeling a little less hungry now');
+//         }
+//     },
+// }
+//
+// wood = {
+//     name: 'Wood',
+// }
+//
+// hutBlueprint = {
+//     name: 'Hut blueprint',
+//     task: {
+//         startText: 'Build Hut<br>(Uses 20 Wood)',
+//         runningText: 'Building...',
+//         msDuration: 10000,
+//         energy: 40,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hasTileUses('Wood', 20);
+//                 },
+//                 notMetText: 'Need 20 Wood'
+//             },
+//             {
+//                 check: function() {
+//                     return energy >= 50;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             },
+//         ],
+//         endAction: function(tile) {
+//             energy -= 40;
+//             removeTileUses('Wood', 20);
+//             addTile(hut, 1);
+//             addExp(tile);
+//             enqueueMessage('This will serve as a shelter');
+//         }
+//     }
+// }
+//
+// woodenToolsBlueprint = {
+//     name: 'Tools blueprint',
+//     task: {
+//         startText: 'Craft wooden tools<br>(Uses 8 Wood)',
+//         runningText: 'Crafting...',
+//         msDuration: 10000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hasTileUses('Wood', 8);
+//                 },
+//                 notMetText: 'Need 8 Wood'
+//             },
+//             {
+//                 check: function() {
+//                     return en// var lookAround;
+// var takeRest;
+// var tree;
+// var bush;
+// var berries;
+// var wood;
+// var hutBlueprint;
+// var woodenToolsBlueprint;
+// var hut;
+// var woodenTools;
+//
+// lookAround = {
+//     name: 'Look around',
+//     task: {
+//         runningText: 'Looking around...',
+//         msDuration: 4000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             energy -= 20;
+//             addTile(tree, 3);
+//             addTile(bush, 2);
+//             enqueueMessage('There are plenty of trees and bushes all around you');
+//         },
+//     },
+// }
+//
+// takeRest = {
+//     name: 'Take a rest',
+//     task: {
+//         runningText: 'Sleeping...',
+//         msDuration: 8000,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy <= 40;
+//                 },
+//                 notMetText: 'No need to rest now',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             energy = 100;
+//             hunger = 80;
+//             enqueueMessage('You wake up feeling quite hungry');
+//         },
+//     },
+// }
+//
+// tree = {
+//     name: 'Tree',
+//     task: {
+//         startText: 'Chop down tree',
+//         runningText: 'Chopping tree...',
+//         msDuration: 10000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             addExp(tile);
+//             energy -= 20;
+//             addTile(wood, 4);
+//             addTile(hutBlueprint, undefined);
+//             addTile(woodenToolsBlueprint, undefined);
+//             enqueueMessage('The tree fell down. You got some Wood');
+//         }
+//     },
+// }
+//
+// bush = {
+//     name: 'Bush',
+//     task: {
+//         startText: 'Forage bush',
+//         runningText: 'Foraging...',
+//         msDuration: 6000,
+//         energy: 10,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return energy >= 15;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             addExp(tile);
+//             energy -= 10;
+//             addTile(berries, 4);
+//             enqueueMessage('You got some blue berries. They look comestible');
+//         }
+//     },
+// }
+//
+// berries = {
+//     name: 'Berries',
+//     task: {
+//         startText: 'Eat berries',
+//         runningText: 'Eating...',
+//         msDuration: 2000,
+//         energy: 10,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hunger > 0;
+//                 },
+//                 notMetText: 'I\'m already full',
+//             }
+//         ],
+//         endAction: function(tile) {
+//             tile.uses--;
+//             hunger -= 10;
+//             enqueueMessage('Feeling a little less hungry now');
+//         }
+//     },
+// }
+//
+// wood = {
+//     name: 'Wood',
+// }
+//
+// hutBlueprint = {
+//     name: 'Hut blueprint',
+//     task: {
+//         startText: 'Build Hut<br>(Uses 20 Wood)',
+//         runningText: 'Building...',
+//         msDuration: 10000,
+//         energy: 40,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hasTileUses('Wood', 20);
+//                 },
+//                 notMetText: 'Need 20 Wood'
+//             },
+//             {
+//                 check: function() {
+//                     return energy >= 50;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             },
+//         ],
+//         endAction: function(tile) {
+//             energy -= 40;
+//             removeTileUses('Wood', 20);
+//             addTile(hut, 1);
+//             addExp(tile);
+//             enqueueMessage('This will serve as a shelter');
+//         }
+//     }
+// }
+//
+// woodenToolsBlueprint = {
+//     name: 'Tools blueprint',
+//     task: {
+//         startText: 'Craft wooden tools<br>(Uses 8 Wood)',
+//         runningText: 'Crafting...',
+//         msDuration: 10000,
+//         energy: 20,
+//         conditions: [
+//             {
+//                 check: function() {
+//                     return hasTileUses('Wood', 8);
+//                 },
+//                 notMetText: 'Need 8 Wood'
+//             },
+//             {
+//                 check: function() {
+//                     return energy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             },
+//         ],
+//         endAction: function(tile) {
+//             energy -= 20;
+//             removeTileUses('Wood', 8);
+//             addTile(woodenTools, 8);
+//             addExp(tile);
+//             enqueueMessage('Maybe I will get less tired using this');
+//         }
+//     }
+// }
+//
+// hut = {
+//     name: 'Hut',
+// }
+//
+// woodenTools = {
+//     name: 'Wooden tools',
+// }
+//
+// takeRest.task.endAction();
+// addTile(lookAround, undefined);
+// addTile(takeRest, undefined);ergy >= 30;
+//                 },
+//                 notMetText: 'I feel too tired',
+//             },
+//         ],
+//         endAction: function(tile) {
+//             energy -= 20;
+//             removeTileUses('Wood', 8);
+//             addTile(woodenTools, 8);
+//             addExp(tile);
+//             enqueueMessage('Maybe I will get less tired using this');
+//         }
+//     }
+// }
+//
+// hut = {
+//     name: 'Hut',
+// }
+//
+// woodenTools = {
+//     name: 'Wooden tools',
+// }
+//
+// takeRest.task.endAction();
+// addTile(lookAround, undefined);
+// addTile(takeRest, undefined);
